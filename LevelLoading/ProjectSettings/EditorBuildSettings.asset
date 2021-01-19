@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Plugins/AsyncSceneLoader/Scenes/Scene-AnimScene-001.unity
     guid: 3f692836ea5400442afc72c52ead897b
   - enabled: 1
-    path: Assets/Plugins/AsyncSceneLoader/Scenes/Scene-AnimScene-002.unity
-    guid: ce914067ab2f0734d9e40e3510ca0c26
-  - enabled: 1
     path: Assets/Plugins/AsyncSceneLoader/Scenes/Scene-BufferScene-001.unity
     guid: 137f12471a56c9643808bbdd9a8d23be
+  - enabled: 1
+    path: Assets/Plugins/AsyncSceneLoader/Scenes/Scene-SimpleLoad.unity
+    guid: d9284c187f148be49ac239916d199513
   m_configObjects: {}

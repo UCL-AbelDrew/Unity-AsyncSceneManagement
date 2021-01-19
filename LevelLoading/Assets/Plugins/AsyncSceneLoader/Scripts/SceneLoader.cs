@@ -46,7 +46,7 @@ public class SceneLoader : MonoBehaviour
         // Fade out and load a buffer level
         yield return StartCoroutine(FadeAndLoadBuffer());
         // Clear memory resources from the previous scene
-    //   yield return StartCoroutine(ClearPreviousResources());
+        yield return StartCoroutine(ClearPreviousResources());
         // Load an animation scene to cover long load times for the next scene
         yield return StartCoroutine(LoadAnimationScene());
         // Load the next scene, wait until the animation scene has finished before starting.
@@ -66,8 +66,7 @@ public class SceneLoader : MonoBehaviour
 
         // buffer-scene is loading
         while (!asyncLoadOperation.isDone)
-        {
-            Debug.Log(asyncLoadOperation.progress);
+        {        
             // Once load and fade are both complete (because we don't want to activate the buffer scene before the fade has finished)
             if (asyncLoadOperation.progress >= 0.9f && m_canvasGroupAlpha.m_fadeComplete)
             {
@@ -81,17 +80,7 @@ public class SceneLoader : MonoBehaviour
     }
     
     IEnumerator ClearPreviousResources()
-    {
-        /*
-        // Unload previous scene, except DontDestroy objects (e.g Scene Loader and Fade Canvas)
-        AsyncOperation asyncUnloadPreviousSceneOperation = SceneManager.UnloadSceneAsync(m_currentSceneName);
-        
-        // wait for the scene to clear
-        while (!asyncUnloadPreviousSceneOperation.isDone)
-        {            
-            yield return null;
-        }
-        */
+    {       
         // wait for unused resources to clear
         AsyncOperation asyncUnloadResources = Resources.UnloadUnusedAssets();
         while (!asyncUnloadResources.isDone)
